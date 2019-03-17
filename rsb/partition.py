@@ -14,4 +14,4 @@ class Partition(object):
         V = set(V)
         A = set(A)
         B = V-A
-        return A,b
+        return A,B
