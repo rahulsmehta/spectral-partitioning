@@ -28,6 +28,6 @@ class FiedlerPartition(Partition):
         return l2, second_vector
 
     # TODO: Not implemented
-    def partition(self, G):
+    def partition(self):
         raise Exception('Not implemented')
             

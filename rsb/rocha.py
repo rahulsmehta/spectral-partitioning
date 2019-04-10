@@ -1,6 +1,7 @@
 import networkx as nx
 import numpy as np
 import scipy.linalg as la
+import time
 
 from .partition import Partition
 
@@ -18,10 +19,15 @@ class RochaPartition(Partition):
 
     def partition(self):
         G = self.G
+        t0 = time.time()
         L = nx.laplacian_matrix(G)
         L = L.toarray()
+        t1 = time.time()
+        print('Time to compute laplacian: {}'.format(t1-t0))
         ev, lv, rv = la.eig(L, left=True, right=True)
         ev = np.real(ev)
+        t2 = time.time()
+        print('Time to compute eigs: {}'.format(t2-t))
         z = zip(ev, rv)
         sorted_eigs = sorted(z, key=lambda t: t[0])
         
